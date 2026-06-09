@@ -1,0 +1,160 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Condensed:wght@400;600;700&family=Manrope:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap");
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-red: var(--red);
+  --color-red-dk: var(--red-dk);
+  --color-black: var(--black);
+  --color-white: var(--white);
+  --color-mid: var(--mid);
+  --color-border: var(--border-c);
+
+  --color-background: var(--black);
+  --color-foreground: var(--white);
+  --color-card: var(--mid);
+  --color-card-foreground: var(--white);
+  --color-primary: var(--red);
+  --color-primary-foreground: var(--white);
+  --color-secondary: var(--mid);
+  --color-secondary-foreground: var(--white);
+  --color-muted: var(--mid);
+  --color-muted-foreground: oklch(0.7 0.01 30);
+  --color-accent: var(--red);
+  --color-accent-foreground: var(--white);
+  --color-destructive: var(--red);
+  --color-destructive-foreground: var(--white);
+  --color-input: rgba(255, 255, 255, 0.12);
+  --color-ring: var(--red);
+  --color-popover: var(--mid);
+  --color-popover-foreground: var(--white);
+
+  --font-display: "Big Shoulders Display", sans-serif;
+  --font-syne: "Barlow Condensed", sans-serif;
+  --font-sans: "Manrope", sans-serif;
+}
+
+:root {
+  --red: #c0392b;
+  --red-dk: #8b1a1a;
+  --black: #060606;
+  --white: #f5efe6;
+  --mid: #111111;
+  --border-c: rgba(192, 57, 43, 0.25);
+  --border: rgba(192, 57, 43, 0.25);
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border-c);
+  }
+  html, body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: "Manrope", sans-serif;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    body, body * {
+      cursor: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: "Big Shoulders Display", sans-serif; letter-spacing: 0.02em; }
+  .font-syne { font-family: "Barlow Condensed", sans-serif; }
+  .text-outline {
+    -webkit-text-stroke: 2px var(--red);
+    color: transparent;
+  }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes glow-drift {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
+  50% { transform: translate(-48%, -52%) scale(1.1); opacity: 0.75; }
+}
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.7); transform: scale(1); }
+  50% { box-shadow: 0 0 0 6px rgba(192,57,43,0); transform: scale(1.15); }
+}
+@keyframes shimmer {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+@keyframes clip-up {
+  0% { clip-path: inset(100% 0 0 0); transform: translateY(40px); opacity: 0; }
+  100% { clip-path: inset(0 0 0 0); transform: translateY(0); opacity: 1; }
+}
+@keyframes slide-in-right {
+  0% { transform: translateX(120%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.anim-clip-up { animation: clip-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.anim-fade-up { animation: fade-up 0.8s ease-out both; }
+.anim-slide-in-right { animation: slide-in-right 0.6s ease 0.8s both; }
+.anim-float { animation: float-y 4s ease-in-out infinite; }
+.anim-glow { animation: glow-drift 10s ease-in-out infinite; }
+.anim-bounce { animation: bounce-down 1.6s ease-in-out infinite; }
+.anim-pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/*
+  Trainer mask: fully opaque in the center (face + torso),
+  soft dissolve left/right edges, hard cut at bottom (feet blend into ground).
+*/
+.trainer-mask {
+  -webkit-mask-image:
+    radial-gradient(
+      ellipse 65% 88% at 50% 42%,
+      black        28%,
+      rgba(0,0,0,0.88) 48%,
+      rgba(0,0,0,0.55) 65%,
+      rgba(0,0,0,0.18) 80%,
+      transparent  92%
+    ),
+    linear-gradient(to top, transparent 0%, black 14%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    radial-gradient(
+      ellipse 65% 88% at 50% 42%,
+      black        28%,
+      rgba(0,0,0,0.88) 48%,
+      rgba(0,0,0,0.55) 65%,
+      rgba(0,0,0,0.18) 80%,
+      transparent  92%
+    ),
+    linear-gradient(to top, transparent 0%, black 14%);
+  mask-composite: intersect;
+}
+
+.shimmer-btn { position: relative; overflow: hidden; }
+.shimmer-btn::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  animation: shimmer 2.5s infinite;
+  pointer-events: none;
+}
