@@ -1,30 +1,40 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export function StickyCTA() {
   const btnControls = useAnimation();
+  const [pastBooking, setPastBooking] = useState(false);
 
   const scrollToBooking = () =>
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+
+  // Show mobile bar only after the booking section scrolls out of view
+  useEffect(() => {
+    const booking = document.getElementById("booking");
+    if (!booking) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPastBooking(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "0px 0px -50px 0px" }
+    );
+    observer.observe(booking);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     let alive = true;
     const run = async () => {
       while (alive) {
         await new Promise(r => setTimeout(r, 3000));
-        // Glow + scale up
         await btnControls.start({
           scale: 1.1,
           boxShadow: "0 0 0 10px rgba(192,57,43,0.3), 0 0 36px 8px rgba(192,57,43,0.25)",
           transition: { duration: 0.28, ease: "easeOut" },
         });
-        // Press down
         await btnControls.start({
           scale: 0.93,
           boxShadow: "0 0 0 3px rgba(192,57,43,0.55), 0 0 10px 2px rgba(192,57,43,0.3)",
           transition: { duration: 0.13, ease: "easeIn" },
         });
-        // Release
         await btnControls.start({
           scale: 1,
           boxShadow: "0 4px 20px rgba(0,0,0,0.35)",
@@ -54,15 +64,22 @@ export function StickyCTA() {
         </motion.button>
       </div>
 
-      {/* ── Mobile bottom bar ──────────────────────────────── */}
-      <motion.button
-        onClick={scrollToBooking}
-        animate={btnControls}
-        initial={{ scale: 1 }}
-        className="fixed inset-x-0 bottom-0 z-[200] block bg-[var(--red)] py-4 text-center font-syne text-sm font-bold uppercase tracking-[0.18em] text-[var(--white)] shadow-2xl sm:hidden"
-      >
-        Book Free Consult
-      </motion.button>
+      {/* ── Mobile bottom bar — slides up after booking form scrolls out ── */}
+      <AnimatePresence>
+        {pastBooking && (
+          <motion.button
+            key="mobile-cta"
+            onClick={scrollToBooking}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "100%" }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-x-0 bottom-0 z-[200] block bg-[var(--red)] py-4 text-center font-syne text-sm font-bold uppercase tracking-[0.18em] text-[var(--white)] shadow-2xl sm:hidden"
+          >
+            Book Free Consult
+          </motion.button>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import trainerImg from "@/assets/trainer-gio.png";
+import trainerImg from "@/assets/trainer-gio.webp";
 
 // ─── Real client transformation photos ───────────────────────────────────────
-import ba1 from "@/assets/client1.png"; // woman with glasses — fat loss
-import ba2 from "@/assets/client2.png"; // blurred-face man — muscle gain
-import ba3 from "@/assets/client3.png"; // young woman — recomp
-import ba4 from "@/assets/client4.png"; // man at river — fat loss
-import ba5 from "@/assets/client5.png"; // man back view — muscle gain
-import ba6 from "@/assets/client6.png"; // man — body transformation
+import ba1 from "@/assets/client1.webp"; // woman with glasses — fat loss
+import ba2 from "@/assets/client2.webp"; // blurred-face man — muscle gain
+import ba3 from "@/assets/client3.webp"; // young woman — recomp
+import ba4 from "@/assets/client4.webp"; // man at river — fat loss
+import ba5 from "@/assets/client5.webp"; // man back view — muscle gain
+import ba6 from "@/assets/client6.webp"; // man — body transformation
 
 type Card = {
   img: string;
@@ -168,6 +168,8 @@ export function Hero() {
         <img
           src={trainerImg}
           alt="Giorgi Lomidze — Trainer Gio"
+          fetchPriority="high"
+          decoding="async"
           className="trainer-mask select-none"
           style={{
             width: "100vw",
@@ -360,6 +362,8 @@ function PhotoCard({ card, compact, active }: { card: Card; compact?: boolean; a
       <img
         src={card.img}
         alt={`${card.label} transformation`}
+        loading="lazy"
+        decoding="async"
         className={`w-full h-auto block transition-all duration-500 group-hover:scale-105 ${lit ? "scale-105" : ""}`}
         draggable={false}
       />

@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import ba1 from "@/assets/client1.png";
-import ba2 from "@/assets/client2.png";
-import ba3 from "@/assets/client3.png";
-import ba6 from "@/assets/client6.png";
-import oa1 from "@/assets/openart-image_1779075649340_ede57d4d_1779075649781_1bf8fe0d.png";
-import oa2 from "@/assets/openart-image_1779076598682_6a5cce3b_1779076599122_65595d51.png";
-import oa3 from "@/assets/openart-image_1779297328009_ed8a7f73_1779297329299_fa6d34b4.png";
-import oa5 from "@/assets/openart-image_1779570166997_cb318c5f_1779570167669_8d2b9cc7.png";
-import oa6 from "@/assets/openart-image_1779570864245_7809ad7a_1779570864568_0cfe4aae.png";
+import ba1 from "@/assets/client1.webp";
+import ba2 from "@/assets/client2.webp";
+import ba3 from "@/assets/client3.webp";
+import ba6 from "@/assets/client6.webp";
+import oa1 from "@/assets/openart-image_1779075649340_ede57d4d_1779075649781_1bf8fe0d.webp";
+import oa2 from "@/assets/openart-image_1779076598682_6a5cce3b_1779076599122_65595d51.webp";
+import oa3 from "@/assets/openart-image_1779297328009_ed8a7f73_1779297329299_fa6d34b4.webp";
+import oa5 from "@/assets/openart-image_1779570166997_cb318c5f_1779570167669_8d2b9cc7.webp";
+import oa6 from "@/assets/openart-image_1779570864245_7809ad7a_1779570864568_0cfe4aae.webp";
 
 type Client = { img: string; stat: string; label: string; weeks: string };
 
@@ -43,6 +43,8 @@ function ClientCard({ c, i, onOpen }: { c: Client; i: number; onOpen: (c: Client
       <img
         src={c.img}
         alt={`${c.label} transformation`}
+        loading="lazy"
+        decoding="async"
         className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
         draggable={false}
       />
@@ -99,6 +101,8 @@ function PhotoModal({ c, onClose }: { c: Client; onClose: () => void }) {
         <img
           src={c.img}
           alt={`${c.label} transformation`}
+          loading="lazy"
+          decoding="async"
           className="block w-full object-cover"
           style={{ maxHeight: "80vh" }}
           draggable={false}
