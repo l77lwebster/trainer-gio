@@ -112,7 +112,7 @@
 
 .anim-clip-up { animation: clip-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 .anim-fade-up { animation: fade-up 0.8s ease-out both; }
-.anim-slide-in-right { animation: slide-in-right 0.4s ease 0.2s both; }
+.anim-slide-in-right { animation: slide-in-right 0.2s ease 0.1s both; }
 .anim-float { animation: float-y 4s ease-in-out infinite; }
 .anim-glow { animation: glow-drift 10s ease-in-out infinite; }
 .anim-bounce { animation: bounce-down 1.6s ease-in-out infinite; }

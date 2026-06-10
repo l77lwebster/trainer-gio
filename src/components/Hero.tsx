@@ -65,7 +65,7 @@ function MobileHeroButton() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: 0.9, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="absolute top-[5vh] left-0 right-0 z-50 flex justify-center whitespace-nowrap"
     >
       <motion.button
@@ -178,12 +178,13 @@ export function Hero() {
             objectPosition: isMobile ? "49% 0%" : "center 30%",
             transform: `translate(${mouse.x * -12}px, ${mouse.y * -4}px)`,
             transition: "transform 0.5s cubic-bezier(0.2,0.8,0.2,1)",
+            willChange: "transform",
           }}
         />
       </div>
 
       {/* ── Hero name block — GIORGI grazes the lower forearms ── */}
-      <div className="pointer-events-none absolute inset-x-0 z-30 flex flex-col items-center text-center" style={{ bottom: isMobile ? "9vh" : "16vh" }}>
+      <div className="pointer-events-none absolute inset-x-0 z-30 flex flex-col items-center text-center" style={{ bottom: isMobile ? "9vh" : "16vh", willChange: "transform" }}>
         {/* GIORGI */}
         <motion.h1
           initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
@@ -241,7 +242,7 @@ export function Hero() {
         <motion.button
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4, duration: 0.7, ease: "easeOut" }}
+          transition={{ delay: 0.9, duration: 0.6, ease: "easeOut" }}
           onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
           className="absolute bottom-[5.5vh] left-1/2 z-40 flex -translate-x-1/2 flex-col items-center gap-2"
         >
@@ -275,6 +276,7 @@ export function Hero() {
             [c.side === "L" ? "left" : "right"]: c.off,
             transform: `translate(${mouse.x * c.depth}px, ${mouse.y * (c.depth * 0.6)}px) rotate(${c.rot}deg)`,
             transition: "transform 0.65s cubic-bezier(0.2,0.8,0.2,1)",
+            willChange: "transform",
           }}
         >
           <PhotoCard card={c} />
