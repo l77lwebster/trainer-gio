@@ -8,16 +8,17 @@ export function StickyCTA() {
   const scrollToBooking = () =>
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
 
-  // Show mobile bar only after the booking form is fully scrolled past
+  // Show mobile bar slightly before booking form fully scrolls off screen
   useEffect(() => {
     const booking = document.getElementById("booking");
     if (!booking) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setPastBooking(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(booking);
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const rect = booking.getBoundingClientRect();
+      setPastBooking(rect.bottom < window.innerHeight * 0.25);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -73,7 +74,7 @@ export function StickyCTA() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="fixed inset-x-0 bottom-0 z-[200] block bg-[var(--red)] py-4 text-center font-syne text-sm font-bold uppercase tracking-[0.18em] text-[var(--white)] shadow-2xl sm:hidden"
           >
             Book Free Consult
