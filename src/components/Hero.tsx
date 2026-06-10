@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import trainerImg from "@/assets/trainer-gio.webp";
-import trainerImgMobile from "@/assets/trainer-gio-mobile.webp";
 
 // ─── Real client transformation photos ───────────────────────────────────────
 import ba1 from "@/assets/client1.webp"; // woman with glasses — fat loss
@@ -167,7 +166,7 @@ export function Hero() {
       {/* ── Trainer photo ── */}
       <div className="absolute inset-0 z-10 flex items-end justify-center">
         <img
-          src={isMobile ? trainerImgMobile : trainerImg}
+          src={trainerImg}
           alt="Giorgi Lomidze — Trainer Gio"
           fetchPriority="high"
           decoding="async"
@@ -175,8 +174,8 @@ export function Hero() {
           style={{
             width: "100vw",
             height: "100vh",
-            objectFit: isMobile ? "contain" : "cover",
-            objectPosition: isMobile ? "50% 50%" : "center 30%",
+            objectFit: "cover",
+            objectPosition: isMobile ? "49% 0%" : "center 30%",
             transform: `translate(${mouse.x * -12}px, ${mouse.y * -4}px)`,
             transition: "transform 0.5s cubic-bezier(0.2,0.8,0.2,1)",
           }}
