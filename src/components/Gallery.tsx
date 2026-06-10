@@ -34,11 +34,11 @@ function ClientCard({ c, i, onOpen }: { c: Client; i: number; onOpen: (c: Client
     <motion.div
       onClick={() => onOpen(c)}
       initial={{ opacity: 0, y: reduce ? 0 : 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -4, scale: 1.02 }}
-      className="group relative cursor-zoom-in overflow-hidden rounded-lg border border-white/10 transition-all duration-300 hover:border-[var(--red)]/60 hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(192,57,43,0.25)]"
+      whileHover={{ y: -6, scale: 1.03 }}
+      className="group relative cursor-zoom-in overflow-hidden rounded-lg border border-white/10 transition-all duration-500 hover:border-[var(--red)]/60 hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(192,57,43,0.25)]"
       style={{ aspectRatio: i % 3 === 1 ? "3/4" : "2/3", willChange: "transform, opacity" }}
     >
       <img
@@ -170,10 +170,10 @@ export function Gallery() {
             {["TRANSFORMATIONS", "THAT SPEAK."].map((line, i) => (
               <motion.h2
                 key={line}
-                initial={{ y: 80, opacity: 0 }}
+                initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: i * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className={`block font-display leading-[0.88] ${i === 1 ? "text-[var(--red)]" : "text-[var(--white)]"}`}
                 style={{ fontSize: "clamp(44px, 6.5vw, 100px)" }}
               >

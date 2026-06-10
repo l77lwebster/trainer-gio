@@ -80,7 +80,7 @@ export function About() {
               initial={{ y: reduce ? 0 : 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="block font-display leading-[0.88] text-[var(--white)]"
               style={{ fontSize: "clamp(48px, 7.5vw, 120px)" }}
             >
@@ -91,7 +91,7 @@ export function About() {
             initial={{ y: reduce ? 0 : 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.24, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.24, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="block font-display leading-[0.88] text-[var(--red)]"
             style={{ fontSize: "clamp(48px, 7.5vw, 120px)" }}
           >
@@ -245,4 +245,10 @@ export function About() {
               </h4>
               <p className="mt-4 text-sm leading-relaxed text-[var(--white)]/60">{s.desc}</p>
             </motion.div>
-          
+          ))}
+        </div>
+      </div>
+
+    </section>
+  );
+}
