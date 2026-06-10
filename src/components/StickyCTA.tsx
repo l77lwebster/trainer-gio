@@ -8,16 +8,14 @@ export function StickyCTA() {
   const scrollToBooking = () =>
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
 
-  // Show mobile bar only after the hero section scrolls out of view
+  // Show mobile bar as soon as the hero's top button (~15vh) scrolls off screen
   useEffect(() => {
-    const hero = document.getElementById("hero");
-    if (!hero) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setPastHero(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(hero);
-    return () => observer.disconnect();
+    const onScroll = () => {
+      setPastHero(window.scrollY > window.innerHeight * 0.15);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
