@@ -3,20 +3,20 @@ import { useEffect, useState } from "react";
 
 export function StickyCTA() {
   const btnControls = useAnimation();
-  const [pastBooking, setPastBooking] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
 
   const scrollToBooking = () =>
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
 
-  // Show mobile bar only after the booking section scrolls out of view
+  // Show mobile bar only after the hero section scrolls out of view
   useEffect(() => {
-    const booking = document.getElementById("booking");
-    if (!booking) return;
+    const hero = document.getElementById("hero");
+    if (!hero) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setPastBooking(!entry.isIntersecting),
-      { threshold: 0, rootMargin: "0px 0px -50px 0px" }
+      ([entry]) => setPastHero(!entry.isIntersecting),
+      { threshold: 0 }
     );
-    observer.observe(booking);
+    observer.observe(hero);
     return () => observer.disconnect();
   }, []);
 
@@ -64,9 +64,9 @@ export function StickyCTA() {
         </motion.button>
       </div>
 
-      {/* ── Mobile bottom bar — slides up after booking form scrolls out ── */}
+      {/* ── Mobile bottom bar — slides up after hero scrolls out of view ── */}
       <AnimatePresence>
-        {pastBooking && (
+        {pastHero && (
           <motion.button
             key="mobile-cta"
             onClick={scrollToBooking}

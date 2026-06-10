@@ -259,8 +259,7 @@ export function Hero() {
         </motion.button>
       )}
 
-      {/* ── Book CTA — mobile (bold button) ── */}
-      {isMobile && <MobileHeroButton />}
+      {/* Mobile CTA removed — handled by StickyCTA after hero scrolls past */}
 
       {/* ── Desktop result cards ── */}
       {!isMobile && visibleCards.map((c, i) => (
