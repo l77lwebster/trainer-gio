@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 import ba1 from "@/assets/client1.webp";
 import ba2 from "@/assets/client2.webp";
@@ -29,16 +29,17 @@ const MORE: Client[] = [
 ];
 
 function ClientCard({ c, i, onOpen }: { c: Client; i: number; onOpen: (c: Client) => void }) {
+  const reduce = useReducedMotion();
   return (
     <motion.div
       onClick={() => onOpen(c)}
-      initial={{ opacity: 0, y: 50, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ delay: i * 0.09, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -6, scale: 1.03 }}
-      className="group relative cursor-zoom-in overflow-hidden rounded-lg border border-white/10 transition-all duration-500 hover:border-[var(--red)]/60 hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(192,57,43,0.25)]"
-      style={{ aspectRatio: i % 3 === 1 ? "3/4" : "2/3" }}
+      initial={{ opacity: 0, y: reduce ? 0 : 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -4, scale: 1.02 }}
+      className="group relative cursor-zoom-in overflow-hidden rounded-lg border border-white/10 transition-all duration-300 hover:border-[var(--red)]/60 hover:shadow-[0_20px_60px_rgba(0,0,0,0.8),0_0_40px_rgba(192,57,43,0.25)]"
+      style={{ aspectRatio: i % 3 === 1 ? "3/4" : "2/3", willChange: "transform, opacity" }}
     >
       <img
         src={c.img}

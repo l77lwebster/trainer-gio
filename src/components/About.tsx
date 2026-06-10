@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const STATS = [
@@ -53,6 +53,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 
 export function About() {
   const sectionRef = useRef(null);
+  const reduce = useReducedMotion();
 
   return (
     <section id="about" className="relative w-full overflow-hidden bg-[var(--black)]">
@@ -76,10 +77,10 @@ export function About() {
           {["NOT JUST A TRAINER.", "YOUR PARTNER IN"].map((line, i) => (
             <motion.h2
               key={line}
-              initial={{ y: 80, opacity: 0 }}
+              initial={{ y: reduce ? 0 : 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="block font-display leading-[0.88] text-[var(--white)]"
               style={{ fontSize: "clamp(48px, 7.5vw, 120px)" }}
             >
@@ -87,10 +88,10 @@ export function About() {
             </motion.h2>
           ))}
           <motion.h2
-            initial={{ y: 80, opacity: 0 }}
+            initial={{ y: reduce ? 0 : 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.24, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: 0.24, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="block font-display leading-[0.88] text-[var(--red)]"
             style={{ fontSize: "clamp(48px, 7.5vw, 120px)" }}
           >
@@ -102,10 +103,10 @@ export function About() {
         <div className="mt-14 grid grid-cols-1 gap-10 md:grid-cols-[1fr_1px_1fr]">
           {/* Left bio */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: reduce ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.7 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
             className="space-y-5 text-base leading-relaxed text-[var(--white)]/70"
           >
             <p>
@@ -125,10 +126,10 @@ export function About() {
 
           {/* Right — credentials list */}
           <motion.ul
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: reduce ? 0 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.35, duration: 0.7 }}
+            transition={{ delay: 0.35, duration: 0.5 }}
             className="space-y-4"
           >
             {[
@@ -154,7 +155,7 @@ export function About() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5 }}
         className="relative mt-20 overflow-hidden border-y border-white/10 bg-[var(--mid)]"
       >
         {/* Subtle red sweep */}
@@ -207,10 +208,10 @@ export function About() {
         </div>
 
         <motion.h3
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: reduce ? 0 : 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.7 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
           className="mt-5 font-display leading-[0.9] text-[var(--white)]"
           style={{ fontSize: "clamp(42px, 5.5vw, 84px)" }}
         >
@@ -222,10 +223,10 @@ export function About() {
           {STEPS.map((s, i) => (
             <motion.div
               key={s.n}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: reduce ? 0 : 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: [0.2, 0.8, 0.2, 1] }}
               className="group relative overflow-hidden bg-[var(--black)] p-10 transition-all duration-500 hover:bg-[var(--mid)]"
             >
               {/* Large ghost number */}
@@ -244,10 +245,4 @@ export function About() {
               </h4>
               <p className="mt-4 text-sm leading-relaxed text-[var(--white)]/60">{s.desc}</p>
             </motion.div>
-          ))}
-        </div>
-      </div>
-
-    </section>
-  );
-}
+          
