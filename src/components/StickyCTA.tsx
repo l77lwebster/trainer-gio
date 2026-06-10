@@ -14,7 +14,8 @@ export function StickyCTA() {
     if (!booking) return;
     const onScroll = () => {
       const rect = booking.getBoundingClientRect();
-      setPastBooking(rect.bottom < window.innerHeight * 0.25);
+      const scrolledIn = -rect.top;
+      setPastBooking(scrolledIn > booking.offsetHeight * 0.5);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
