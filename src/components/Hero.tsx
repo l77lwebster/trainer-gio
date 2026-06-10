@@ -175,8 +175,8 @@ export function Hero() {
           style={{
             width: "100vw",
             height: "100vh",
-            objectFit: "cover",
-            objectPosition: isMobile ? "50% 15%" : "center 30%",
+            objectFit: isMobile ? "contain" : "cover",
+            objectPosition: isMobile ? "50% 50%" : "center 30%",
             transform: `translate(${mouse.x * -12}px, ${mouse.y * -4}px)`,
             transition: "transform 0.5s cubic-bezier(0.2,0.8,0.2,1)",
           }}
