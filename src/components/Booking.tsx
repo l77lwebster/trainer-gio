@@ -11,8 +11,7 @@ const PERKS = [
   "Real results, real accountability",
 ];
 
-// ── Replace YOUR_FORM_ID with the ID from formspree.io/dashboard ──
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzdqgdrb";
 
 declare global {
   interface Window { gtag?: (...args: unknown[]) => void; }
