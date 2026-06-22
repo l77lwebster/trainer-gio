@@ -34,13 +34,16 @@ export function Cursor() {
       r.y += (m.y - r.y) * 0.22;
 
       if (ringRef.current) {
-        const s = hover ? 52 : 28;
+        const s = hover ? 52 : 30;
         const half = s / 2;
         ringRef.current.style.transform   = `translate(${r.x - half}px,${r.y - half}px)`;
         ringRef.current.style.width       = `${s}px`;
         ringRef.current.style.height      = `${s}px`;
-        ringRef.current.style.background  = hover ? "rgba(192,57,43,0.10)" : "transparent";
-        ringRef.current.style.borderColor = hover ? "rgba(192,57,43,0.55)" : "rgba(192,57,43,0.9)";
+        ringRef.current.style.background  = hover ? "rgba(192,57,43,0.12)" : "transparent";
+        ringRef.current.style.borderColor = hover ? "rgba(192,57,43,0.8)" : "rgba(192,57,43,1)";
+        ringRef.current.style.boxShadow   = hover
+          ? "0 0 12px 3px rgba(192,57,43,0.55), inset 0 0 8px rgba(192,57,43,0.15)"
+          : "0 0 8px 2px rgba(192,57,43,0.35)";
         ringRef.current.style.opacity     = "1";
       }
 
@@ -74,19 +77,19 @@ export function Cursor() {
         style={{
           opacity: 0,
           willChange: "transform",
-          width: 5,
-          height: 5,
+          width: 7,
+          height: 7,
           borderRadius: "50%",
-          background: "var(--red)",
+          background: "#ff4433",
           position: "fixed",
           left: 0,
           top: 0,
           zIndex: 9999,
           pointerEvents: "none",
           transform: "translate(-200px,-200px)",
-          marginLeft: -2.5,
-          marginTop: -2.5,
-          mixBlendMode: "exclusion",
+          marginLeft: -3.5,
+          marginTop: -3.5,
+          boxShadow: "0 0 6px 2px rgba(192,57,43,0.9), 0 0 14px 4px rgba(192,57,43,0.45)",
         }}
       />
 
