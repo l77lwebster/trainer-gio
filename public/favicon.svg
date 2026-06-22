@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Black background -->
+  <rect width="64" height="64" fill="#111111"/>
+
+  <!-- TRAINER text (top) -->
+  <text x="32" y="28" font-family="Arial Black, Arial" font-weight="900" font-size="11" fill="white" text-anchor="middle" letter-spacing="1.5">TRAINER</text>
+
+  <!-- Red slash bar -->
+  <polygon points="6,34 58,30 58,34 6,38" fill="#c0392b"/>
+
+  <!-- Dumbbell left plate -->
+  <rect x="5" y="44" width="3" height="12" rx="1" fill="white"/>
+  <rect x="7" y="46" width="4" height="8" rx="1" fill="white"/>
+
+  <!-- Dumbbell right plate -->
+  <rect x="56" y="44" width="3" height="12" rx="1" fill="white"/>
+  <rect x="53" y="46" width="4" height="8" rx="1" fill="white"/>
+
+  <!-- GIO text (bottom, large) -->
+  <text x="32" y="55" font-family="Arial Black, Arial" font-weight="900" font-size="17" fill="white" text-anchor="middle" letter-spacing="1">GIO</text>
+</svg>
