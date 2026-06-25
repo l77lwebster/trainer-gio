@@ -6,8 +6,21 @@ import { Footer } from "./components/Footer";
 import { Cursor } from "./components/Cursor";
 import { Grain } from "./components/Grain";
 import { StickyCTA } from "./components/StickyCTA";
+import { ThankYou } from "./components/ThankYou";
 
 export default function App() {
+  const isThankYou = window.location.pathname === "/thank-you";
+
+  if (isThankYou) {
+    return (
+      <>
+        <Cursor />
+        <Grain />
+        <ThankYou />
+      </>
+    );
+  }
+
   return (
     <>
       <Cursor />

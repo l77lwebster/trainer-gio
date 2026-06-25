@@ -71,7 +71,7 @@ export function Booking() {
 
       if (res.ok) {
         trackConversion();
-        setSubmitted(true);
+        window.location.href = "/thank-you";
       } else {
         setError("Something went wrong. Please try again or text me directly.");
       }
