@@ -1,6 +1,15 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 export function ThankYou() {
+  useEffect(() => {
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag("config", "AW-18264003949", {
+        page_path: "/thank-you",
+      });
+    }
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-[var(--black)] px-6 text-center">
       <motion.div
