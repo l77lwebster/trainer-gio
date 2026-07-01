@@ -9,7 +9,6 @@ import oa1 from "@/assets/openart-image_1779075649340_ede57d4d_1779075649781_1bf
 import oa2 from "@/assets/openart-image_1779076598682_6a5cce3b_1779076599122_65595d51.webp";
 import oa3 from "@/assets/openart-image_1779297328009_ed8a7f73_1779297329299_fa6d34b4.webp";
 import oa5 from "@/assets/openart-image_1779570166997_cb318c5f_1779570167669_8d2b9cc7.webp";
-import oa6 from "@/assets/openart-image_1779570864245_7809ad7a_1779570864568_0cfe4aae.webp";
 
 type Client = { img: string; stat: string; label: string; weeks: string };
 
@@ -23,7 +22,6 @@ const MAIN: Client[] = [
 ];
 
 const MORE: Client[] = [
-  { img: oa6,  stat: "−18 lbs", label: "Fat Loss",      weeks: "14 Weeks" },
   { img: ba3,  stat: "−10 lbs", label: "Recomp",        weeks: "11 Weeks" },
   { img: ba6,  stat: "−19 lbs", label: "Recomp",        weeks: "14 Weeks" },
 ];
