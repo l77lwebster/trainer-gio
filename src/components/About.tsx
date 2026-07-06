@@ -118,9 +118,10 @@ export function About() {
               knows both.
             </p>
             <p>
-              At 21, I transitioned that knowledge into personal training — certified in Georgia
-              and subsequently through Canfitpro here in Canada. Nearly three years into this
-              profession, every program I design reflects that athletic foundation: precise,
+              At 21, I transitioned that knowledge into personal training — certified in Georgia,
+              where I coached for nearly three years before bringing that experience to Canada and
+              earning my Canfitpro certification. With over five years in the profession across
+              two countries, every program I design reflects that athletic foundation: precise,
               purposeful, and built around the individual in front of me. Strength, fat loss,
               recomposition, performance — the method adapts. The standard doesn't.
             </p>
