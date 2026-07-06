@@ -111,7 +111,7 @@ export function About() {
           >
             <p>
               Before I ever stepped onto a gym floor as a coach, I spent 15 years as an athlete.
-              Six years in soccer, followed by nine in basketball — three of which were played at
+              6 years in soccer, followed by 9 in basketball — 3 of which were played at
               a professional level in Georgia. That career didn't just build discipline; it built
               an intimate understanding of how the human body moves, adapts, and breaks down under
               demand. Two sports. Two entirely different biomechanical systems. One trainer who
