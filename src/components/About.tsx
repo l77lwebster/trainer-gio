@@ -110,18 +110,19 @@ export function About() {
             className="space-y-5 text-base leading-relaxed text-[var(--white)]/70"
           >
             <p>
-              I'm Gio. I started playing soccer at 6, switched to basketball at 12, and competed
-              for 9 years — including 3 years professionally back in Georgia. Two sports, two
-              completely different ways of moving, two different demands on the body. That
-              background gave me something most trainers don't have: a real feel for how movement
-              works, and how to build a body that actually performs.
+              Before I ever stepped onto a gym floor as a coach, I spent 15 years as an athlete.
+              Six years in soccer, followed by nine in basketball — three of which were played at
+              a professional level in Georgia. That career didn't just build discipline; it built
+              an intimate understanding of how the human body moves, adapts, and breaks down under
+              demand. Two sports. Two entirely different biomechanical systems. One trainer who
+              knows both.
             </p>
             <p>
-              I became a personal trainer at 21, right after stepping away from professional ball.
-              Nearly 3 years in, the approach hasn't changed — your program is built around how
-              your body moves, your schedule, your goals, and nutrition coached alongside it from
-              day one. Whether you've never touched a weight or you've been training for years,
-              I'll meet you exactly where you are.
+              At 21, I transitioned that knowledge into personal training — certified in Georgia
+              and subsequently through Canfitpro here in Canada. Nearly three years into this
+              profession, every program I design reflects that athletic foundation: precise,
+              purposeful, and built around the individual in front of me. Strength, fat loss,
+              recomposition, performance — the method adapts. The standard doesn't.
             </p>
           </motion.div>
 
