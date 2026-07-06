@@ -170,6 +170,12 @@ export function Booking() {
                   <p className="mt-2 text-xs tracking-wide text-[var(--white)]/40">
                     30 seconds · No commitment · Just results
                   </p>
+                  <p className="mt-3 font-syne text-[13px] font-semibold uppercase tracking-[0.1em] text-[var(--white)]/40">
+                    Or text/call{" "}
+                    <a href="tel:6477041078" className="text-[var(--red)] font-bold transition-colors duration-200 hover:text-[var(--red-dk)]">
+                      (647) 704-1078
+                    </a>
+                  </p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
