@@ -4,8 +4,15 @@ import { motion } from "framer-motion";
 export function ThankYou() {
   useEffect(() => {
     if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      // Page view hit so Google Analytics knows we're on /thank-you
       (window as any).gtag("config", "AW-18264003949", {
         page_path: "/thank-you",
+      });
+      // Google Ads conversion event — required for the campaign to count a lead
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-18264003949/UGE4CIOIosYcEO2q-oRE",
+        value: 1.0,
+        currency: "CAD",
       });
     }
   }, []);
