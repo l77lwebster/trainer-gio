@@ -67,7 +67,7 @@ export function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="font-syne text-xs font-bold uppercase tracking-[0.3em] text-[var(--red)]"
+          className="font-syne text-sm font-bold uppercase tracking-[0.3em] text-[var(--red)]"
         >
           About Trainer Gio
         </motion.p>
@@ -82,7 +82,7 @@ export function About() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="block font-display leading-[0.88] text-[var(--white)]"
-              style={{ fontSize: "clamp(48px, 7.5vw, 120px)" }}
+              style={{ fontSize: "clamp(36px, 5.5vw, 90px)" }}
             >
               {line}
             </motion.h2>
@@ -110,14 +110,18 @@ export function About() {
             className="space-y-5 text-base leading-relaxed text-[var(--white)]/70"
           >
             <p>
-              I'm Gio — a certified personal trainer based at GoodLife Fitness in Stouffville, ON.
-              I work with everyone from total beginners to competing athletes.
-              No cookie-cutter programs, no recycled advice.
+              I'm Gio. I started playing soccer at 6, switched to basketball at 12, and competed
+              for 9 years — including 3 years professionally back in Georgia. Two sports, two
+              completely different ways of moving, two different demands on the body. That
+              background gave me something most trainers don't have: a real feel for how movement
+              works, and how to build a body that actually performs.
             </p>
             <p>
-              You get a plan built for your body, your schedule, your goals — with nutrition
-              coaching baked in and the accountability to actually finish what you started.
-              Serving Stouffville, Markham, and the entire GTA.
+              I became a personal trainer at 21, right after stepping away from professional ball.
+              Nearly 3 years in, the approach hasn't changed — your program is built around how
+              your body moves, your schedule, your goals, and nutrition coached alongside it from
+              day one. Whether you've never touched a weight or you've been training for years,
+              I'll meet you exactly where you are.
             </p>
           </motion.div>
 
@@ -133,7 +137,8 @@ export function About() {
             className="space-y-4"
           >
             {[
-              "Certified Personal Trainer (CPT)",
+              "Canfitpro CPT — Canada",
+              "Certified Personal Trainer — Georgia",
               "Nutrition Coaching Specialist",
               "GoodLife Fitness — Stouffville, ON",
               "Strength, Fat Loss & Body Recomposition",
